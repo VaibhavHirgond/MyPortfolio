@@ -1,0 +1,847 @@
+:root {
+  --primary: #6366f1;
+  --secondary: #a855f7;
+  --accent: #22d3ee;
+  --bg: #020617;
+  --text: #f8fafc;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --glass: rgba(0, 0, 0, 0.02);
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Moving Background Glow */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(99, 102, 241, 0.15) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(168, 85, 247, 0.15) 0%,
+      transparent 40%
+    );
+  z-index: -1;
+}
+
+/* Navbar Style[cite: 1] */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  padding: 12px 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.nav-active {
+  color: var(--primary) !important;
+  border-bottom: 2px solid var(--primary);
+}
+
+/* Hero Section[cite: 1] */
+.hero-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-card {
+  background: var(--glass);
+  padding: 4rem;
+  border-radius: 40px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(40px);
+  text-align: center;
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 4px solid var(--primary);
+  animation: morph 8s ease-in-out infinite; /*[cite: 1] */
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+.gradient-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Project Cards[cite: 1, 2] */
+.content-container {
+  padding: 120px 5% 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+/* Universal Card Styling for all pages */
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  border-radius: 25px;
+  padding: 30px;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  transform-style: preserve-3d; /* Required for 3D Tilt */
+  perspective: 1000px;
+}
+
+/* Global Hover Glow */
+.glass-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+/* Pulsing Tech Bubbles for all pages */
+.tech-bubble {
+  display: inline-block;
+  padding: 6px 16px;
+  margin: 5px;
+  background: var(--glass-border);
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.tech-bubble:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+  animation: bubble-pulse 1s infinite alternate;
+}
+
+@keyframes bubble-pulse {
+  from {
+    box-shadow: 0 0 0px var(--primary);
+  }
+  to {
+    box-shadow: 0 0 15px var(--primary);
+  }
+}
+
+/* Skill Bar Styling (Percentage Bars) */
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.skill-bar-container {
+  width: 100%;
+  height: 10px;
+  background: var(--glass-border);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  width: 0%; /* Initial state for animation */
+  transition: width 1.5s cubic-bezier(0.1, 0.42, 0.41, 1);
+}
+
+/* Animations for Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  margin: 10px auto;
+  border-radius: 2px;
+}
+.project-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.social-links {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.social-links a {
+  font-size: 1.5rem;
+  color: var(--text);
+  transition: 0.3s;
+}
+.social-links a:hover {
+  color: var(--primary);
+  transform: translateY(-5px);
+}
+
+/* About Page Specific Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.about-main {
+  grid-column: span 2;
+}
+
+.personal-info {
+  margin-top: 20px;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.personal-info i {
+  color: var(--primary);
+  margin-right: 8px;
+}
+
+/* Timeline Styling */
+.timeline-item {
+  padding-left: 20px;
+  border-left: 2px solid var(--glass-border);
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.institution {
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.date {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Skill Tags */
+.skill-group h5 {
+  margin: 15px 0 10px;
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags span {
+  background: var(--glass-border);
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  border: 1px solid transparent;
+}
+
+.skill-tags span:hover {
+  border-color: var(--primary);
+  background: var(--glass);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 850px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-main {
+    grid-column: span 1;
+  }
+}
+
+/* Card Badge (e.g., "Latest") */
+.card-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Icon Container */
+.card-icon-wrap {
+  width: 60px;
+  height: 60px;
+  background: var(--glass-border);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+/* Tech Tags Styling */
+.tech-tags {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tags span {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--primary);
+  color: var(--text);
+  border-radius: 50px;
+}
+
+/* Action Buttons */
+.card-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: auto; /* Pushes buttons to the bottom */
+  padding-top: 20px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.icon-link {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s;
+}
+
+.icon-link:hover {
+  color: var(--primary);
+  transform: translateX(3px);
+}
+
+/* Project Card Specific Hover */
+.project-card:hover .card-icon-wrap {
+  background: var(--primary);
+  color: white;
+  transform: rotate(-10deg);
+}
+
+/* Tech Pills */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.pill {
+  font-size: 0.75rem;
+  padding: 5px 15px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Card Badge */
+.card-badge {
+  font-size: 0.7rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Action Links */
+.card-footer {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.btn-link {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+
+.btn-link:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+/* 3D-ish Glow effect */
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+/* Bento Grid Layout */
+.bento-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  padding-top: 120px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card Positioning */
+.profile-box {
+  grid-column: span 1;
+  grid-row: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.identity-box {
+  grid-column: span 3;
+  text-align: left;
+  padding: 40px;
+}
+.social-box {
+  grid-column: span 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skills-box {
+  grid-column: span 2;
+  padding: 30px;
+}
+
+/* Image Style */
+.bento-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 2px solid var(--glass-border);
+}
+
+/* Pulsing Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass-border);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  background: #10b981; /* Green */
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Social Bubbles */
+.bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.social-bubble {
+  width: 50px;
+  height: 50px;
+  background: var(--glass-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-bubble:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.2);
+}
+
+/* Skills Pills */
+.pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.tech-pill {
+  padding: 6px 15px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--primary);
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 850px) {
+  .bento-container {
+    grid-template-columns: 1fr;
+  }
+  .profile-box,
+  .identity-box,
+  .social-box,
+  .skills-box {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+}
+
+/* 1. Experience Level Badges */
+.level-badge {
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.advanced {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  border: 1px solid #818cf8;
+}
+.intermediate {
+  background: rgba(168, 85, 247, 0.2);
+  color: #c084fc;
+  border: 1px solid #c084fc;
+}
+.proficient {
+  background: rgba(34, 211, 238, 0.2);
+  color: #67e8f9;
+  border: 1px solid #67e8f9;
+}
+
+/* 2. Interactive Tech Bubbles */
+.bubble-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.tech-bubble {
+  background: var(--glass-border);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.pulse-bubble:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+  animation: bubble-pulse 1s infinite alternate;
+}
+
+@keyframes bubble-pulse {
+  from {
+    box-shadow: 0 0 0px var(--primary);
+  }
+  to {
+    box-shadow: 0 0 15px var(--primary);
+  }
+}
+
+/* 3. Tilt Card Tweak */
+.project-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Compact Project Cards Styling */
+.project-card.compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Allows cards to grow with content */
+  min-height: 320px;
+  padding: 30px;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.card-icon-wrap.small {
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  margin-bottom: 0; /* Align with title */
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 20px;
+  /* Remove the line-clamp to show everything */
+  display: block;
+  overflow: visible;
+  text-align: left;
+  color: var(--text);
+}
+
+.card-bottom {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.section-title {
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+}
+
+/* Ensure the grid doesn't stretch cards too much */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Bento Grid Expansion for Contact Box */
+.bento-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 120px 5% 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ensure Row 1 and Row 2 maintain proper proportions */
+.profile-box {
+  grid-column: span 1;
+}
+.identity-box {
+  grid-column: span 3;
+}
+.social-box {
+  grid-column: span 2;
+}
+.skills-box {
+  grid-column: span 2;
+}
+
+/* Contact box is already set to span 4 in HTML style attribute */
+
+@media (max-width: 850px) {
+  .bento-container {
+    grid-template-columns: 1fr;
+  }
+  .profile-box,
+  .identity-box,
+  .social-box,
+  .skills-box,
+  .contact-box {
+    grid-column: span 1 !important;
+  }
+}
+/* Form Styling */
+.suggestion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.input-group {
+  display: flex;
+  gap: 15px;
+}
+
+.suggestion-form input,
+.suggestion-form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 12px 15px;
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  transition: 0.3s;
+}
+
+.suggestion-form input:focus,
+.suggestion-form textarea:focus {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.submit-btn {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* Responsive Fix */
+@media (max-width: 850px) {
+  .input-group {
+    flex-direction: column;
+  }
+  .contact-box {
+    grid-column: span 1 !important;
+  }
+}
