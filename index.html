@@ -3,207 +3,459 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vaibhav Hirgond | Portfolio</title>
+<title>Vaibhav Hirgond | Backend Developer & Security Engineer</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </head>
 
 <body data-theme="dark">
 
 <div id="custom-cursor"></div>
+<div id="cursor-trail"></div>
 
-<nav class="navbar reveal active">
-<div class="nav-container">
-
-<div class="logo gradient-text">
-VAIBHAV HIRGOND
-</div>
-
-<ul class="nav-links">
-<li><a href="index.html" class="nav-active">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="projects.html">Projects</a></li>
-
-<li>
-<button id="theme-toggle" class="theme-btn">
-<i class="fas fa-sun"></i>
-</button>
-</li>
-
-</ul>
-
-</div>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo gradient-text">VH</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button id="theme-toggle" class="theme-btn">
+          <i class="fas fa-sun"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
 </nav>
 
-<main class="bento-container">
+<header class="hero" id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner reveal">
+    <div class="status-chip">
+      <span class="dot"></span>
+      Backend Developer & Security Engineer
+    </div>
+    <h1 class="hero-name">
+      Vaibhav<br>
+      <span class="gradient-text">Hirgond</span>
+    </h1>
+    <p class="hero-tag">Building secure, reliable systems on the server side</p>
+    <p class="hero-desc">
+      Information Science & Engineering graduate from Bengaluru, working across
+      Java, Spring Boot and application security to build backend systems that
+      actually hold up under real traffic and real attacks.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="mailto:vaibhavhirgond2004@gmail.com" class="btn-ghost">Get In Touch</a>
+    </div>
+    <div class="scroll-hint">
+      <span></span>
+      Scroll to explore
+    </div>
+  </div>
+</header>
 
-<div class="glass-card bento-item profile-box reveal active" data-tilt>
+<section id="about" class="section">
+  <p class="eyebrow">About</p>
+  <h2 class="section-title left">Backend by trade, security by habit</h2>
 
-<img
-src="vaibhav.jpg"
-alt="Vaibhav Hirgond"
-class="bento-img"
-/>
+  <div class="about-grid">
+    <div class="glass-card about-copy" data-tilt>
+      <p>
+        I'm an Information Science & Engineering graduate (2026) from BLDEA's
+        College of Engineering and Technology, Vijaypur, with a CGPA of 8.2/10.
+        Most of what I actually know past the classroom came from two
+        internships pulling in related but opposite directions.
+      </p>
+      <p>
+        At Levant, I build Java and Spring Boot backends for fintech
+        products — REST APIs, webhook integrations, and the SQL underneath
+        them. At Airowire, I ran vulnerability assessments and hardened web
+        and network applications, which now shapes how I write backend code
+        in the first place.
+      </p>
+      <p>
+        I'm currently looking for an entry-level software engineering role
+        where I can keep building systems that handle real data carefully.
+      </p>
+      <div class="personal-info">
+        <span><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</span>
+        <span><i class="fas fa-language"></i> English, Hindi, Marathi, Kannada</span>
+      </div>
+    </div>
 
-</div>
+    <div class="stats-col">
+      <div class="glass-card stat-card" data-tilt>
+        <div class="stat-num" data-count="8.2">0</div>
+        <div class="stat-label">CGPA / 10.0</div>
+      </div>
+      <div class="glass-card stat-card" data-tilt>
+        <div class="stat-num" data-count="2">0</div>
+        <div class="stat-label">Internships</div>
+      </div>
+      <div class="glass-card stat-card" data-tilt>
+        <div class="stat-num" data-count="6">0</div>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="glass-card stat-card" data-tilt>
+        <div class="stat-num" data-count="8">0</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="glass-card bento-item identity-box reveal active" data-tilt>
+<section id="skills" class="section">
+  <p class="eyebrow">Skills</p>
+  <h2 class="section-title left">The stack behind the systems</h2>
 
-<div class="status-chip">
-<span class="dot"></span>
-Java Full Stack Developer
-</div>
+  <div class="orbit-wrap">
+    <div class="orbit-center">VH</div>
+    <div class="orbit-ring ring-1"></div>
+    <div class="orbit-ring ring-2"></div>
+    <div class="orbit-node n1" style="--angle:0deg">Java</div>
+    <div class="orbit-node n2" style="--angle:60deg">Spring Boot</div>
+    <div class="orbit-node n3" style="--angle:120deg">MySQL</div>
+    <div class="orbit-node n4" style="--angle:180deg">React</div>
+    <div class="orbit-node n5" style="--angle:240deg">JWT</div>
+    <div class="orbit-node n6" style="--angle:300deg">Security</div>
+  </div>
 
-<h1 class="gradient-text">
-Vaibhav Hirgond
-</h1>
+  <div class="toolkit-grid">
+    <div class="glass-card toolkit-card" data-tilt>
+      <p class="box-label">Languages</p>
+      <div class="pills-container">
+        <span class="tech-pill">Java</span>
+        <span class="tech-pill">C</span>
+        <span class="tech-pill">C++</span>
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">JavaScript</span>
+        <span class="tech-pill">SQL</span>
+      </div>
+    </div>
 
-<p>
-Information Science & Engineering Graduate
-<br>
-Java | Spring Boot | React | MySQL
-<br>
-Bengaluru, Karnataka
-</p>
+    <div class="glass-card toolkit-card" data-tilt>
+      <p class="box-label">Backend</p>
+      <div class="pills-container">
+        <span class="tech-pill">Spring Boot</span>
+        <span class="tech-pill">JDBC</span>
+        <span class="tech-pill">REST APIs</span>
+        <span class="tech-pill">JWT Auth</span>
+        <span class="tech-pill">RBAC</span>
+        <span class="tech-pill">Spring Security</span>
+      </div>
+    </div>
 
-</div>
+    <div class="glass-card toolkit-card" data-tilt>
+      <p class="box-label">Frontend</p>
+      <div class="pills-container">
+        <span class="tech-pill">HTML</span>
+        <span class="tech-pill">CSS</span>
+        <span class="tech-pill">JavaScript</span>
+        <span class="tech-pill">React.js</span>
+      </div>
+    </div>
 
-<div class="glass-card bento-item social-box reveal active" data-tilt>
+    <div class="glass-card toolkit-card" data-tilt>
+      <p class="box-label">Data & Messaging</p>
+      <div class="pills-container">
+        <span class="tech-pill">MySQL</span>
+        <span class="tech-pill">PostgreSQL</span>
+        <span class="tech-pill">Redis</span>
+        <span class="tech-pill">Kafka</span>
+      </div>
+    </div>
 
-<div class="bubble-grid">
+    <div class="glass-card toolkit-card" data-tilt>
+      <p class="box-label">Security</p>
+      <div class="pills-container">
+        <span class="tech-pill">Vulnerability Assessment</span>
+        <span class="tech-pill">Secure Coding</span>
+        <span class="tech-pill">Network Security</span>
+        <span class="tech-pill">Web App Security</span>
+      </div>
+    </div>
 
-<a
-href="https://github.com/VaibhavHirgond"
-class="social-link-big"
-target="_blank"
->
-<i class="fab fa-github"></i>
-</a>
+    <div class="glass-card toolkit-card" data-tilt>
+      <p class="box-label">Tools</p>
+      <div class="pills-container">
+        <span class="tech-pill">Docker</span>
+        <span class="tech-pill">Git</span>
+        <span class="tech-pill">Maven</span>
+        <span class="tech-pill">Postman</span>
+        <span class="tech-pill">n8n</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<a
-href="https://www.linkedin.com/in/vaibhav-hirgond"
-class="social-link-big"
-target="_blank"
->
-<i class="fab fa-linkedin"></i>
-</a>
+<section id="projects" class="section">
+  <p class="eyebrow">Projects</p>
+  <h2 class="section-title left">Things I've built</h2>
 
-<a
-href="mailto:vaibhavhirgond2004@gmail.com"
-class="social-link-big"
->
-<i class="fas fa-envelope"></i>
-</a>
+  <div class="project-grid">
 
-<a
-href="tel:+919137334292"
-class="social-link-big"
->
-<i class="fas fa-phone"></i>
-</a>
+    <div class="glass-card project-card" data-tilt>
+      <div class="card-top">
+        <div class="card-icon-wrap"><i class="fas fa-credit-card"></i></div>
+        <span class="proj-date">Apr 2026</span>
+      </div>
+      <h3 class="gradient-text">Levant Payment Gateway</h3>
+      <p class="project-desc">
+        Backend modules for a payment gateway — merchant onboarding, payment
+        initiation, and callback handling — with secure REST APIs and database
+        operations behind it.
+      </p>
+      <div class="bubble-container">
+        <span class="tech-bubble">Java</span>
+        <span class="tech-bubble">Spring Boot</span>
+        <span class="tech-bubble">PostgreSQL</span>
+        <span class="tech-bubble">Docker</span>
+      </div>
+    </div>
 
-</div>
+    <div class="glass-card project-card" data-tilt>
+      <div class="card-top">
+        <div class="card-icon-wrap"><i class="fas fa-user-shield"></i></div>
+        <span class="proj-date">Apr 2026</span>
+      </div>
+      <h3 class="gradient-text">RBAC User Management System</h3>
+      <p class="project-desc">
+        A role-based access control system with JWT authentication — user,
+        role, and permission management on the backend, and a React frontend
+        with protected, permission-based routes.
+      </p>
+      <div class="bubble-container">
+        <span class="tech-bubble">Spring Boot</span>
+        <span class="tech-bubble">React</span>
+        <span class="tech-bubble">MySQL</span>
+        <span class="tech-bubble">JWT</span>
+      </div>
+    </div>
 
-</div>
+    <div class="glass-card project-card" data-tilt>
+      <div class="card-top">
+        <div class="card-icon-wrap"><i class="fas fa-robot"></i></div>
+        <span class="proj-date">Mar 2026</span>
+      </div>
+      <h3 class="gradient-text">AI Workflow Automation</h3>
+      <p class="project-desc">
+        An n8n workflow that reads address data from Google Sheets, formats it
+        with the OpenAI API, generates PDF shipping labels, and emails them —
+        automated end to end.
+      </p>
+      <div class="bubble-container">
+        <span class="tech-bubble">n8n</span>
+        <span class="tech-bubble">OpenAI API</span>
+        <span class="tech-bubble">JavaScript</span>
+      </div>
+    </div>
 
-<div class="glass-card bento-item skills-box reveal active" data-tilt>
+    <div class="glass-card project-card" data-tilt>
+      <div class="card-top">
+        <div class="card-icon-wrap"><i class="fas fa-cart-shopping"></i></div>
+        <span class="proj-date">2025</span>
+      </div>
+      <h3 class="gradient-text">SmartCartX Intelligent Trolley</h3>
+      <p class="project-desc">
+        A smart shopping trolley with automatic product detection and
+        real-time billing, improving checkout efficiency with IoT and
+        sensor-based automation.
+      </p>
+      <div class="bubble-container">
+        <span class="tech-bubble">IoT</span>
+        <span class="tech-bubble">Arduino</span>
+        <span class="tech-bubble">RFID</span>
+      </div>
+    </div>
 
-<p class="box-label">Skills</p>
+    <div class="glass-card project-card" data-tilt>
+      <div class="card-top">
+        <div class="card-icon-wrap"><i class="fas fa-building-columns"></i></div>
+        <span class="proj-date">2023</span>
+      </div>
+      <h3 class="gradient-text">ATM Simulator System</h3>
+      <p class="project-desc">
+        A desktop ATM simulation supporting secure authentication,
+        transactions, and account management, backed by MySQL through JDBC.
+      </p>
+      <div class="bubble-container">
+        <span class="tech-bubble">Java</span>
+        <span class="tech-bubble">JDBC</span>
+        <span class="tech-bubble">MySQL</span>
+      </div>
+    </div>
 
-<div class="pills-container">
+    <div class="glass-card project-card" data-tilt>
+      <div class="card-top">
+        <div class="card-icon-wrap"><i class="fas fa-chart-line"></i></div>
+        <span class="proj-date">2023</span>
+      </div>
+      <h3 class="gradient-text">Result Analysis System</h3>
+      <p class="project-desc">
+        A web-based application for managing student results and automated
+        grade calculations, with a responsive dashboard for performance
+        visualization.
+      </p>
+      <div class="bubble-container">
+        <span class="tech-bubble">HTML</span>
+        <span class="tech-bubble">CSS</span>
+        <span class="tech-bubble">JavaScript</span>
+      </div>
+    </div>
 
-<span class="tech-pill">Java</span>
-<span class="tech-pill">Spring Boot</span>
-<span class="tech-pill">React.js</span>
-<span class="tech-pill">MySQL</span>
-<span class="tech-pill">JavaScript</span>
-<span class="tech-pill">HTML</span>
-<span class="tech-pill">CSS</span>
-<span class="tech-pill">JWT</span>
-<span class="tech-pill">REST API</span>
+  </div>
+</section>
 
-</div>
+<section id="journey" class="section">
+  <p class="eyebrow">Experience & Education</p>
+  <h2 class="section-title left">The journey so far</h2>
 
-</div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <span class="timeline-tag">Internship · Present</span>
+      <h4>Software Engineering & Systems Intern</h4>
+      <p class="institution">Levant Private Limited</p>
+      <p class="timeline-desc">
+        Building Java and Spring Boot backend modules for FinTech
+        applications — REST APIs, webhooks, and secure coding practices for
+        payment and banking workflows.
+      </p>
+    </div>
 
-<div
-class="glass-card bento-item contact-box reveal active"
-data-tilt
-style="grid-column: span 4"
->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <span class="timeline-tag">Internship · Nov 2025 – Apr 2026</span>
+      <h4>Cybersecurity, AI & Networking Intern</h4>
+      <p class="institution">Airowire Networks Pvt. Ltd.</p>
+      <p class="timeline-desc">
+        Ran vulnerability assessments and hardened web and network
+        applications, finding and remediating flaws that improved system
+        resilience.
+      </p>
+    </div>
 
-<h3 class="gradient-title">
-<i class="fas fa-paper-plane"></i>
-Get In Touch
-</h3>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <span class="timeline-tag">2022 – 2026</span>
+      <h4>B.E. Information Science & Engineering</h4>
+      <p class="institution">BLDEA's College of Engineering and Technology, Vijaypur</p>
+      <p class="timeline-desc">CGPA: 8.2 / 10.0</p>
+    </div>
+  </div>
 
-<form
-id="contact-form"
-action="https://formspree.io/f/xjkrzvvv"
-method="POST"
-class="suggestion-form"
->
+  <div class="cert-grid">
+    <div class="glass-card cert-chip" data-tilt>
+      <i class="fas fa-certificate"></i>
+      <div>
+        <p class="cert-name">Java Programming — Beginner to Master</p>
+        <p class="cert-issuer">Udemy</p>
+      </div>
+    </div>
+    <div class="glass-card cert-chip" data-tilt>
+      <i class="fas fa-certificate"></i>
+      <div>
+        <p class="cert-name">Java Fundamentals Course for Beginners</p>
+        <p class="cert-issuer">Udemy</p>
+      </div>
+    </div>
+    <div class="glass-card cert-chip" data-tilt>
+      <i class="fas fa-certificate"></i>
+      <div>
+        <p class="cert-name">Java Programming Internship</p>
+        <p class="cert-issuer">Cognifyz Technologies</p>
+      </div>
+    </div>
+    <div class="glass-card cert-chip" data-tilt>
+      <i class="fas fa-certificate"></i>
+      <div>
+        <p class="cert-name">Web Development Internship</p>
+        <p class="cert-issuer">System Tron</p>
+      </div>
+    </div>
+    <div class="glass-card cert-chip" data-tilt>
+      <i class="fas fa-certificate"></i>
+      <div>
+        <p class="cert-name">Data Analytics Job Simulation</p>
+        <p class="cert-issuer">Deloitte Australia · Forage</p>
+      </div>
+    </div>
+    <div class="glass-card cert-chip" data-tilt>
+      <i class="fas fa-certificate"></i>
+      <div>
+        <p class="cert-name">Cyber Job Simulation</p>
+        <p class="cert-issuer">Deloitte Australia · Forage</p>
+      </div>
+    </div>
+    <div class="glass-card cert-chip" data-tilt>
+      <i class="fas fa-certificate"></i>
+      <div>
+        <p class="cert-name">Cybersecurity Security Analyst Job Simulation</p>
+        <p class="cert-issuer">Tata · Forage</p>
+      </div>
+    </div>
+    <div class="glass-card cert-chip" data-tilt>
+      <i class="fas fa-certificate"></i>
+      <div>
+        <p class="cert-name">C and C++</p>
+        <p class="cert-issuer">Certification</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="input-group">
+<section id="contact" class="section">
+  <p class="eyebrow">Contact</p>
+  <h2 class="section-title left">Let's connect</h2>
 
-<input
-type="text"
-name="name"
-placeholder="Full Name"
-required
-/>
+  <div class="contact-grid">
+    <div class="glass-card contact-copy" data-tilt>
+      <p>
+        Looking to hire a fresher backend engineer, or just want to talk
+        systems and security? Reach out below.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:vaibhavhirgond2004@gmail.com">
+          <i class="fas fa-envelope"></i> vaibhavhirgond2004@gmail.com
+        </a>
+        <a href="https://github.com/VaibhavHirgond" target="_blank">
+          <i class="fab fa-github"></i> github.com/VaibhavHirgond
+        </a>
+        <a href="https://www.linkedin.com/in/vaibhav-hirgond" target="_blank">
+          <i class="fab fa-linkedin"></i> linkedin.com/in/vaibhav-hirgond
+        </a>
+        <span class="location-line">
+          <i class="fas fa-location-dot"></i> Bengaluru, Karnataka, India
+        </span>
+      </div>
+    </div>
 
-<input
-type="email"
-name="email"
-placeholder="Email Address"
-required
-/>
+    <div class="glass-card contact-form-card" data-tilt>
+      <h3 class="gradient-title"><i class="fas fa-paper-plane"></i> Send a message</h3>
+      <form id="contact-form" action="https://formspree.io/f/xjkrzvvv" method="POST" class="suggestion-form">
+        <div class="input-group">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
 
-</div>
-
-<div class="input-group">
-
-<input
-type="tel"
-name="phone"
-placeholder="Phone Number"
-/>
-
-<input
-type="text"
-name="city"
-placeholder="City"
-/>
-
-</div>
-
-<textarea
-name="message"
-placeholder="Your Message"
-rows="4"
-required
-></textarea>
-
-<button type="submit" class="submit-btn">
-Send Message
-</button>
-
-</form>
-
-</div>
-
-</main>
+<footer class="footer">
+  Vaibhav Hirgond &copy; 2026 &middot; Bengaluru, India
+</footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
